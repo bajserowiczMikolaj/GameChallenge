@@ -15,11 +15,16 @@ Steps
     id: 1,  -- used to randomly chose question 
    question : " ",
    answer A : "A",
-   answer B : "B*",   // question B is right return true   use include(*)
+   answer B : "B",   // question B is right return true   use include(*)
    answer C : "C",
    answer D : "D",
+   correct aswer A 
 
   },
+
+
+5)  add next button 
+
 
 4) Create function to pass question to HTML -- (end of the weekend)
 - check if answear is right ( use includes(), add special sign in the right qestion, when function return true or false ) ???  not sure if best solution 
@@ -33,8 +38,18 @@ Steps
 
 8) Create total score and display it on top of the page
 
-* 10) Try to creat timer ( no clue how to make it )
+* 10) Try to creat timer ( no clue how to make it ) --- 
 
 if any time left back to css and make it nice !!!
+
+
+extrass !!!!
+
+add help functions like in tv show. Lifelines
+
+phone a frend -- display text with right answer on top ("I think this is: A")
+Ask the Audience -- same thing just defrent text ("")
+Switch the Question -- gnerate ranom number again and push new question 
+
 
 

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(107, 138, 215);
+  background-color: #6b8ad7;
   padding: 0;
   margin: 0;
   display: flex;
@@ -14,10 +14,18 @@ body {
   align-items: center;
 }
 
+#price {
+  text-align: center;
+}
+
+#quastions-container {
+  text-align: center;
+}
+
 .answears-container {
   width: 800px;
   max-width: 80%;
-  background-color: white;
+  background-color: rgb(117, 230, 230);
   border-radius: 2%;
   padding: 50px;
   align-items: center;
@@ -26,8 +34,38 @@ body {
 
 .button {
   color: black;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   background: lightblue;
   border-radius: 7%;
+  box-shadow: 0 0 7px 1px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.submit {
+  display: grid;
+  grid-template-columns: auto;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  background: rgb(130, 224, 143);
+  border-radius: 7%;
+  box-shadow: 0 0 10px 2px;
+}
+
+.next {
+  display: grid;
+  grid-template-columns: auto;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  background: rgb(130, 224, 143);
+  border-radius: 7%;
+  box-shadow: 0 0 10px 2px;
 }/*# sourceMappingURL=style.css.map */
