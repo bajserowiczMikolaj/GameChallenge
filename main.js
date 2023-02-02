@@ -1,16 +1,19 @@
-//import questionArr from "./questionsData";
+import {questionArr} from "./questionsData.js";
 
 const startGameButton = document.getElementById('start-button')
 const containerElement = document.getElementById('quastions-container')
-const answerElements = document.querySelectorAll('.button-grid')
+const answerElement = document.querySelector('.answears-container')
 const priceElement = document.getElementById('price')
 const submitButton = document.getElementById('submit-button')
 const nextButton = document.getElementById('next-button')
-
+const gameOverElement = document.querySelector('.game-over')
 const aAnswer = document.getElementById('A')
 const bAnswer = document.getElementById('B')
 const cAnswer = document.getElementById('C')
 const dAnswer = document.getElementById('D')
+
+answerElement.style.display = "none"   //hide element
+gameOverElement.style.display="none"
 
 let index = 0; 
 let price = 0;
@@ -21,12 +24,13 @@ const generateNumer = () =>{
     console.log(index)
 }
 
-
 startGameButton.addEventListener('click',() =>{
+    answerElement.style.display = "block"   //showe element 
+    startGameButton.style.display ="none" 
+    gameOverElement.style.display="none"  //hide element 
     price =1000;
     generateNumer()
     nextQuestions()
-    
 })
 
 aAnswer.addEventListener('click',()=>{
@@ -64,11 +68,11 @@ submitButton.addEventListener('click',()=>{              // compare two string n
 }) 
 
 const checkAnswear = ()=>{   //compare string 
-if (questionTest[index].answer === answearKeeper) {
+if (questionArr[index].answer === answearKeeper) {
     priceIncrise()
 console.log("good answear!!!")
     
-}else if(questionTest[index].answer !== answearKeeper) 
+}else if(questionArr[index].answer !== answearKeeper) 
 {console.log("wrong answear!!!!!!!")
  gameOver()
 }}
@@ -78,7 +82,9 @@ const priceIncrise =()=>{
 }
 
 const gameOver = () => {
-    // game over function add htl css to 
+    gameOverElement.style.display="block"
+    answerElement.style.display = "none"
+    startGameButton.style.display ="block"
 }
 
 
@@ -92,203 +98,13 @@ nextButton.addEventListener('click',()=>{
 )
 
 const nextQuestions = (value) => {
-    containerElement.innerText = questionTest[index].question
-    aAnswer.innerText = questionTest[index].optionA
-    bAnswer.innerText = questionTest[index].optionB
-    cAnswer.innerText = questionTest[index].optionC
-    dAnswer.innerText = questionTest[index].optionD
+
+    //if price ==== 1024 you are the winner 
+    // else display next question 
+    containerElement.innerText = questionArr[index].question
+    aAnswer.innerText = questionArr[index].optionA
+    bAnswer.innerText = questionArr[index].optionB
+    cAnswer.innerText = questionArr[index].optionC
+    dAnswer.innerText = questionArr[index].optionD
     priceElement.innerText = "You Already Won " + price
 }
-
-
-const questionTest = [
-    {
-        question: "What temperature does water boil at?",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "0000002",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000003",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000004",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000005",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "What temperature does water boil at?",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "0000002",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000003",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000004",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000005",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "What temperature does water boil at?",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "0000002",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000003",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000004",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    {
-        question: "00000005",
-        optionA: "50 degrees Celcius",
-        optionB: "25 degrees Celcius",
-        optionC: "100 degrees Celcius",
-        optionD: "150 degrees Celcius",
-        answer: "100 degrees Celcius"
-    },
-    ]
-
-
-
-
-// const makeQuestion = (questionObject) => {
-//     const questionHTML = '
-//     <div class="answears-container">
-//     <h1 id="price">${questionObjec.price} tag</h1>
-//     <h2 id="quastions-container">${questionObjec.question}</h2>
-//     <div class="button-grid">
-//       <button id="A" class="button">${questionObjec.A}</button>
-//       <button id="B" class="button">${questionObjec.B}</button>
-//       <button id="C" class="button">${questionObjec.C}</button>
-//       <button id="D" class="button">${questionObjec.D}</button>
-//       <button class="submit" id="submit-button">${questionObjec.Submit}</button>
-//     </div>
-//     ';
-//   return questionHTML;
-// };
-
-
-
-
-
-
-
-
-// const loadQuestions =(questions) =>{
-//     containerElement.innerHTML = questions[0].question      // no access to array why ??? 
-//     aAnswer.innerHTML = questions[0].optionA
-//     bAnswer.innerHTML = questions[0].optionB
-//     cAnswer.innerHTML = questions[0].optionC
-//     dAnswer.innerHTML = questions[0].optionD
-
-// }
-// const questionTest = [
-
-// {
-//     "question": "What temperature does water boil at?",
-//     "optionA": "50 degrees Celcius",
-//     "optionB": "25 degrees Celcius",
-//     "optionC": "100 degrees Celcius",
-//     "optionD": "150 degrees Celcius",
-//     "answer": "100 degrees Celcius"
-// },
-// ]
-
-// const makeCard = (cardObject) => {  //HOW THIS IS WORKING BEHAIND ??? 
-//     const cardHTML = `
-//       <div class="card-container">
-//         <img class="card__image" src="${cardObject.sprite}" alt=" image of ">
-//         <h1 class="card__content">${cardObject.name}</h1>
-//         <h2 class="card__heading">${cardObject.types}</h2>
-//       </div>
-//   `;
-//     return cardHTML;
-//   };
-
-//  //populate cards on the page 
-//   const populatePage = (pokemonArray) => {
-//     cardContainer.innerHTML = pokemonArray.map(card => makeCard(card)).join("")
-//   }
-//   populatePage(pokemonArray)
-
-
-
-//   input.addEventListener("input", hendlSearch)
-
- 

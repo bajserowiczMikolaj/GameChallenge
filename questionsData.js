@@ -134,5 +134,3 @@ export const questionArr = [
         "answer": "In the beginning"
     }
 ]
-
-export default questionArr;

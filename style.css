@@ -33,12 +33,17 @@ body {
 }
 
 .button {
-  color: black;
-  font-size: 30px;
+  box-shadow: inset 0px 1px 0px 0px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 6px;
+  border: 6px solid #4e6096;
+  color: #ffffff;
+  font-size: 15px;
   font-weight: bold;
-  background: lightblue;
-  border-radius: 7%;
-  box-shadow: 0 0 7px 1px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
 }
 
 .button-grid {
@@ -51,21 +56,43 @@ body {
 .submit {
   display: grid;
   grid-template-columns: auto;
-  color: black;
-  font-size: 40px;
+  box-shadow: inset 0px 1px 37px 20px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 17px;
+  border: 6px solid #74b807;
+  color: #ffffff;
+  font-size: 28px;
   font-weight: bold;
-  background: rgb(130, 224, 143);
-  border-radius: 7%;
-  box-shadow: 0 0 10px 2px;
+  padding: 21px 65px;
+  text-shadow: 0px 0px 0px #528009;
 }
 
 .next {
   display: grid;
   grid-template-columns: auto;
-  color: black;
-  font-size: 40px;
+  box-shadow: inset 0px 1px 37px 20px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 17px;
+  border: 6px solid #74b807;
+  color: #ffffff;
+  font-size: 28px;
   font-weight: bold;
-  background: rgb(130, 224, 143);
-  border-radius: 7%;
-  box-shadow: 0 0 10px 2px;
+  padding: 21px 65px;
+  text-shadow: 0px 0px 0px #528009;
+}
+
+#start-button {
+  box-shadow: inset 0px 1px 37px 20px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 17px;
+  border: 6px solid #74b807;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 21px 65px;
+  text-shadow: 0px 0px 0px #528009;
 }/*# sourceMappingURL=style.css.map */
