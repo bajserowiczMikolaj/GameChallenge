@@ -12,7 +12,7 @@ const bAnswer = document.getElementById('B')
 const cAnswer = document.getElementById('C')
 const dAnswer = document.getElementById('D')
 
-let index = 0;
+let index = 0; 
 let price = 0;
 let answearKeeper = '' ;
 
@@ -23,7 +23,7 @@ const generateNumer = () =>{
 
 
 startGameButton.addEventListener('click',() =>{
-    price =0;
+    price =1000;
     generateNumer()
     nextQuestions()
     
@@ -36,33 +36,54 @@ aAnswer.addEventListener('click',()=>{
 )
 
 bAnswer.addEventListener('click',()=>{
+    answearKeeper = bAnswer.innerText
     console.log(bAnswer.innerText)
 }
 )
 cAnswer.addEventListener('click',()=>{
+    answearKeeper = cAnswer.innerText
     console.log(cAnswer.innerText)
 }
 )
 
 dAnswer.addEventListener('click',()=>{
+    answearKeeper = dAnswer.innerText
     console.log(dAnswer.innerText)
 }
 )
 
-submitButton.addEventListener('click',()=>{
+submitButton.addEventListener('click',()=>{              // compare two string now !!!!!!!! answear keapper === answear ---> next question if not game over 
 
 // if correct incress price , price squere 
 // add confetti ,
 // shaffle question and take next one 
 // if wrong game over 
 // compeare answear string to answear keeper string 
-
-
     console.log("submitButton")
+    checkAnswear()
+}) 
+
+const checkAnswear = ()=>{   //compare string 
+if (questionTest[index].answer === answearKeeper) {
+    priceIncrise()
+console.log("good answear!!!")
+    
+}else if(questionTest[index].answer !== answearKeeper) 
+{console.log("wrong answear!!!!!!!")
+ gameOver()
+}}
+
+const priceIncrise =()=>{
+ price = (price * 2)
 }
-)
+
+const gameOver = () => {
+    // game over function add htl css to 
+}
+
+
 nextButton.addEventListener('click',()=>{
-    answearKeeper = '' ;
+    answearKeeper = '' ;    //clear answear keeper 
     console.log(answearKeeper + " answear keeper at next ")
     generateNumer()
     nextQuestions()
@@ -77,7 +98,6 @@ const nextQuestions = (value) => {
     cAnswer.innerText = questionTest[index].optionC
     dAnswer.innerText = questionTest[index].optionD
     priceElement.innerText = "You Already Won " + price
-    
 }
 
 
