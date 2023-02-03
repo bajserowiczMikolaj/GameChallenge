@@ -1,106 +1,133 @@
-import {questionArr} from "./questionsData.js";
+import { questionArr } from "./questionsData.js";
 
 const startGameButton = document.getElementById('start-button')
 const containerElement = document.getElementById('quastions-container')
 const answerElement = document.querySelector('.answears-container')
-const priceElement = document.getElementById('price')
+const priceElement = document.querySelector('.price')
+const priceElement1 = document.querySelector('.price1')
 const submitButton = document.getElementById('submit-button')
 const nextButton = document.getElementById('next-button')
-const gameOverElement = document.querySelector('.game-over')
+const PlayAgaiButtonGameOver = document.querySelector('.play-again-gameover')
+const PlayAgaiButtonWinner = document.querySelector('.play-again-winner')
+const gameOverView = document.querySelector(".gameover-container")
+const winGameView = document.querySelector(".winer-container")
+
+const canvas = document.querySelector('#confetti')
+
 const aAnswer = document.getElementById('A')
 const bAnswer = document.getElementById('B')
 const cAnswer = document.getElementById('C')
 const dAnswer = document.getElementById('D')
 
-answerElement.style.display = "none"   //hide element
-gameOverElement.style.display="none"
+answerElement.style.display = "none"
+gameOverView.style.display = "none"
+winGameView.style.display = "none"
 
-let index = 0; 
+const jsConfetti = new JSConfetti()
+
+let index = 0;
 let price = 0;
-let answearKeeper = '' ;
+let answearKeeper = '';
 
-const generateNumer = () =>{ 
+const generateNumer = () => {
     index = Math.round(Math.random() * 10)
     console.log(index)
 }
 
-startGameButton.addEventListener('click',() =>{
+startGameButton.addEventListener('click', () => {
+
+    startGameButton.style.display = "none"
     answerElement.style.display = "block"   //showe element 
-    startGameButton.style.display ="none" 
-    gameOverElement.style.display="none"  //hide element 
-    price =1000;
+    gameOverView.style.display = "none"
+    winGameView.style.display = "none"
+    price = 1000;
     generateNumer()
     nextQuestions()
 })
 
-aAnswer.addEventListener('click',()=>{
+
+const playAgain = () => {
+    answerElement.style.display = "block"   //showe element 
+    startGameButton.style.display = "none"
+    gameOverView.style.display = "none"
+    winGameView.style.display = "none"
+    price = 1000;
+    generateNumer()
+    nextQuestions()
+}
+
+PlayAgaiButtonGameOver.addEventListener('click', () => {
+    playAgain()
+})
+
+PlayAgaiButtonWinner.addEventListener('click', () => {
+    playAgain()
+})
+
+aAnswer.addEventListener('click', () => {
     answearKeeper = aAnswer.innerText
-    console.log(answearKeeper + "this is naswear keeper")
-}
-)
-
-bAnswer.addEventListener('click',()=>{
+})
+bAnswer.addEventListener('click', () => {
     answearKeeper = bAnswer.innerText
-    console.log(bAnswer.innerText)
-}
-)
-cAnswer.addEventListener('click',()=>{
+
+})
+cAnswer.addEventListener('click', () => {
     answearKeeper = cAnswer.innerText
-    console.log(cAnswer.innerText)
-}
-)
 
-dAnswer.addEventListener('click',()=>{
+})
+dAnswer.addEventListener('click', () => {
     answearKeeper = dAnswer.innerText
-    console.log(dAnswer.innerText)
-}
-)
 
-submitButton.addEventListener('click',()=>{              // compare two string now !!!!!!!! answear keapper === answear ---> next question if not game over 
-
-// if correct incress price , price squere 
-// add confetti ,
-// shaffle question and take next one 
-// if wrong game over 
-// compeare answear string to answear keeper string 
-    console.log("submitButton")
+})
+submitButton.addEventListener('click', () => {
     checkAnswear()
-}) 
+    checkWinner()
+})
 
-const checkAnswear = ()=>{   //compare string 
-if (questionArr[index].answer === answearKeeper) {
-    priceIncrise()
-console.log("good answear!!!")
-    
-}else if(questionArr[index].answer !== answearKeeper) 
-{console.log("wrong answear!!!!!!!")
- gameOver()
-}}
+const checkAnswear = () => {
+    if (questionArr[index].answer === answearKeeper) {
+        priceIncrise()
+    } else if (questionArr[index].answer !== answearKeeper) {
+        gameOver()
+    }
+}
 
-const priceIncrise =()=>{
- price = (price * 2)
+const priceIncrise = () => {
+    price = (price * 2)
 }
 
 const gameOver = () => {
-    gameOverElement.style.display="block"
     answerElement.style.display = "none"
-    startGameButton.style.display ="block"
+    startGameButton.style.display = "none"
+    gameOverView.style.display = "block"
+    winGameView.style.display = "none"
+    priceElement1.innerText = price
 }
 
+const checkWinner = () => {
+    if (price == 1024000) {
+        return winner()
+    }
+}
 
-nextButton.addEventListener('click',()=>{
-    answearKeeper = '' ;    //clear answear keeper 
+const winner = () => {
+    answerElement.style.display = "none"
+    startGameButton.style.display = "none"
+    gameOverView.style.display = "none"
+    winGameView.style.display = "block"
+    jsConfetti.addConfetti()
+}
+
+nextButton.addEventListener('click', () => {
+    answearKeeper = '';
     console.log(answearKeeper + " answear keeper at next ")
     generateNumer()
     nextQuestions()
-    console.log("nextButton")
+
 }
 )
 
 const nextQuestions = (value) => {
-
-    //if price ==== 1024 you are the winner 
-    // else display next question 
     containerElement.innerText = questionArr[index].question
     aAnswer.innerText = questionArr[index].optionA
     bAnswer.innerText = questionArr[index].optionB

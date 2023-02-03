@@ -5,19 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Milioners</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://icons8.com/icon/59840/money-bag"
-    />
     <link rel="stylesheet" href="style.css" />
-   
   </head>
-  
+
   <body>
-   
     <div class="answears-container">
-      <h1 id="price">price tag</h1>
+      <h1 class="price">price tag</h1>
       <h2 id="quastions-container">Question</h2>
 
       <div class="button-grid">
@@ -28,11 +21,24 @@
         <button class="submit" id="submit-button">Submit</button>
         <button class="next" id="next-button">Next Question</button>
       </div>
-    
     </div>
-    <button id="start-button">Start Game</button>
-    <div class="game-over"> Game over</div>
 
+    <div class="gameover-container">
+      <h2 id="gameover-text">Uppppssss . You are loser but you won so far</h2>
+      <h1 class="price1">price tag 1</h1>
+      <button class="play-again-gameover">Play Again</button>
+    </div>
+
+    <div class="winer-container">
+      <h1 id="winer-text">You just won 1 milion Pounds</h1>
+
+      <button class="play-again-winner">Play Again</button>
+    </div>
+
+    <button id="start-button">Start Game</button>
+    <canvas id="confetti"></canvas>
     <script src="/main.js" type="module"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   </body>
 </html>
